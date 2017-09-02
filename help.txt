@@ -1,0 +1,74 @@
+This is a beta version.
+There is a theoretical risk of program crash as the result of connection break during a key exchange process. 
+
+About program:
+The program is designed to establish secure (end-to-end encryption) P2P connections between two users through the Internet. TCP/IPv4 stack is used.
+Key exchange encryption:
+RSA (the length is set by users) for AES-256.
+RSA (the length is set by users) for Blowfish-448. 
+
+Message encryption:
+Message ---> AES-256 (CBC mode) ---> BlowFish-448 (CBC mode) ---> encrypted message.
+
+Before work:
+Program needs some libraries. Console shows ImportError if some package is not found.
+
+Basic libraries:
+traceback
+sys
+
+List of libraries for GUI work: 
+TKinter (GUI library)
+threading
+os
+time
+gc
+
+List of libraries for socket wrapper work:
+socket
+struct
+pickle
+copy
+pyCryptoDome (only old pyCrypto modules)
+
+For accepting P2P connection, set port forwarding on your router or NAT server (the default inner port for program is 8196). The external port for accepting connections is set by users and does not have a default value. The author recommends to use the same values for inner and external ports.
+
+!!!WARRING!!!
+External port must be unique for each inner IP.
+Do not forget to check the antivirus settings.
+It is recommended to establish a correspondence between inner IP and MAC address in the local network.
+!!!WARRING!!!
+
+Starting a connection:
+
+Basic for starting connection:
+1. Set your inner port value in field "My port" (if it is 8196, you can left this field empty).
+2. Press "Bind socket" (check a message about results).
+3. Ask another user about external ip and port for connection.
+4. Before connection you can set key length (default 4096 bytes for RSA) and other parametrs in settings panel (optional).
+5. Ask another user who is the host.
+
+If you are waiting for a connection (you are the host):
+6. Press "Wait for a connection" (another user has 45 seconds to connect after your action).
+7. Wait for a message box, check IP and port, and press "yes" to start the key generating and the key exchanging.
+
+If you are trying to connect (you are not the host):
+6. Input external IP and port of the host in the field "Connection adress" (for example, 8.8.8.8:8196).
+7. Press "Try to connect". One try get about 10 seconds (check a message about results).
+
+Basic for starting connection:
+8. Waiting for the end of the key exchange (Warrning: ElGamal key generating is slow. Check a message about results.).
+9. YEEEEEEEEEES! The connection is started.
+
+For the end of connection:
+1. Press "Break the connection".
+
+!!!WARRING!!!
+After the connection is broken you need to rebind a socket and to reaccept settings.
+!!!WARRING!!!
+
+Notice:
+Console output is more informative.
+If you are suppose your partner to be offline, try to send two messages to check it.
+The author considers that to keep the port permanently open for waiting new connections is not safety, so in the current version this function is switched off. 
+

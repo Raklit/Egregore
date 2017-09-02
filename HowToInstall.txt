@@ -1,0 +1,44 @@
+1. Import the files into one folder.
+
+2. Install Python version 3.6. or bigger.
+
+3. Install pyCryptoDome
+
+
+
+
+Advices (2 and 3 steps):
+
+
+
+For Ubuntu:
+
+
+Try typing in terminal (with root access):
+
+sudo apt-get install python3.6
+
+python3.6 -m pip install pycryptodome
+ 
+
+
+For Windows 7 or bigger:
+
+
+Visit python.org and install python for your CPU.
+
+Try typing in cmd (with admin access):
+
+"<Python3 path>\Scripts\pip3.exe install pyCryptodome"
+
+
+
+
+
+
+Start EGREGORE_Start EGREGORE_GUI.py to win)))
+
+
+
+P.S. Console output will help if some libraries are missing.
+
